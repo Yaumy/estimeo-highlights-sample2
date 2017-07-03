@@ -80,6 +80,16 @@ describe('<HighlightGrid />', () => {
     /**
      * TODO
      */
+    it('tag gridlist', () => {
+        const wrapper = shallow(<HighlightGrid highlights={highlights} />);
+        expect(wrapper.find('GridList').length).toBe(3);
+    })
+
+    it('gridlist cols property', () => {
+        const wrapper = shallow(<HighlightGrid highlights={highlights} />);
+        expect(wrapper.find('gridList').first().contains('cols={2}'));
+    })
+
     it('will success', () => {
         expect(false).toBe(false)
     })

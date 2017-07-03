@@ -11,7 +11,23 @@ describe('<Header />', () => {
     /**
      * TODO
      */
-    it('will fail', () => {
-        expect(false).toBe(true)
+    it('title', () => {
+        const wrapper = shallow(<Header />);
+        expect(wrapper.find('title').text()).toBe('Estimeo Highlights');
+    })
+
+    it('register1', () => {
+        const wrapper = shallow(<Header />);
+        expect(wrapper.contains('<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />'));
+    })
+
+    it('register2', () => {
+        const wrapper = shallow(<Header />);
+        expect(wrapper.contains('<link rel="stylesheet" href="/static/css/estimeo-style.css"/>'));
+    })
+
+    it('tag', () => {
+        const wrapper = shallow(<Header />);
+        expect(wrapper.find('style').length).toBe(1);
     })
 })
