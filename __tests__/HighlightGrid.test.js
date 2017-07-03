@@ -80,17 +80,18 @@ describe('<HighlightGrid />', () => {
     /**
      * TODO
      */
-    it('tag gridlist', () => {
+    it('has 3 "<GridList />" tags', () => {
         const wrapper = shallow(<HighlightGrid highlights={highlights} />);
-        expect(wrapper.find('GridList').length).toBe(3);
+        expect(wrapper.find('GridList').length).toBe(3)
     })
 
-    it('gridlist cols property', () => {
+    it('first "<GridList />" has "2" as "cols" property', () => {
         const wrapper = shallow(<HighlightGrid highlights={highlights} />);
-        expect(wrapper.find('gridList').first().contains('cols={2}'));
+        expect(wrapper.find('GridList').first().prop('cols')).toEqual(2)
     })
 
-    it('will success', () => {
-        expect(false).toBe(false)
+    it('first "<GridList />" has good key', () => {
+        const wrapper = shallow(<HighlightGrid highlights={highlights} />);
+        expect(wrapper.find('GridList').first().key()).toEqual(highlights[0].periode)
     })
 })
